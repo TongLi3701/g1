@@ -8,7 +8,7 @@ def make_api_call(messages, max_tokens, is_final_answer=False):
     for attempt in range(3):
         try:
             response = ollama.chat(
-                model="llama3.1:70b",
+                model="llama3",
                 messages=messages,
                 options={"temperature":0.2, "max_length":max_tokens},
                 format='json',
@@ -77,7 +77,7 @@ Example of a valid JSON response:
 def main():
     st.set_page_config(page_title="g1 prototype", page_icon="🧠", layout="wide")
     
-    st.title("g1: Using Llama-3.1 70b on Groq to create o1-like reasoning chains")
+    st.title("g1: Using Llama-3 on Groq to create o1-like reasoning chains")
     
     st.markdown("""
     This is an early prototype of using prompting to create o1-like reasoning chains to improve output accuracy. It is not perfect and accuracy has yet to be formally evaluated. It is powered by Ollama.
